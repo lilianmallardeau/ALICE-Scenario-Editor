@@ -1,17 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
+import {Row, Col, Container} from "react-bootstrap";
+
+import { EventsPanel } from './components/events';
+import { TimelinePanel } from './components/timeline';
+import { MenuBar } from "./components/menubar";
+import { store } from './store/store';
+import './css/index.css';
+
+function ScenarioEditor(props) {
+    return (
+        <div>
+            <header className="main-header">ALICE Scenario Editor</header>
+            <MenuBar/>
+            <Container fluid>
+                <Row>
+                    <Col lg={4}>
+                        {/*<Row><ActionsPanel/></Row>*/}
+                        <Row><EventsPanel/></Row>
+                    </Col>
+                    <Col lg={8}>
+                        <TimelinePanel/>
+                    </Col>
+                </Row>
+            </Container>
+        </div>
+    );
+}
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <Provider store={store}>
+        <ScenarioEditor/>
+    </Provider>,
+    document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

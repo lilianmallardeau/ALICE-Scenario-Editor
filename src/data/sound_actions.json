@@ -1,0 +1,148 @@
+[
+  {
+    "name": "play_channel",
+    "type": "sound_action",
+    "description": "Play sound channel",
+    "options": [
+      {
+        "name": "channel",
+        "desc": "Channel to play",
+        "type": "string"
+      },
+      {
+        "name": "fade_time",
+        "desc": "Fading time before playing",
+        "type": "float",
+        "default": 0
+      }
+    ]
+  },
+  {
+    "name": "pause_channel",
+    "type": "sound_action",
+    "description": "Pause sound channel",
+    "options": [
+      {
+        "name": "channel",
+        "desc": "Channel to pause",
+        "type": "string"
+      },
+      {
+        "name": "fade_time",
+        "desc": "Fading time before pausing",
+        "type": "float",
+        "default": 0
+      }
+    ]
+  },
+  {
+    "name": "set_volume",
+    "type": "sound_action",
+    "description": "Set channel volume",
+    "options": [
+      {
+        "name": "channel",
+        "desc": "Channel",
+        "type": "string"
+      },
+      {
+        "name": "volume",
+        "desc": "Volume",
+        "type": "int"
+      },
+      {
+        "name": "fade_time",
+        "desc": "Fade time",
+        "type": "float",
+        "default": 0
+      }
+    ]
+  },
+  {
+    "name": "set_loop_mode",
+    "type": "sound_action",
+    "description": "Set loop mode for a channel",
+    "options": [
+      {
+        "name": "channel",
+        "desc": "Channel",
+        "type": "string"
+      },
+      {
+        "name": "loop_mode",
+        "desc": "Loop mode",
+        "type": "choice",
+        "choices": [
+          {
+            "label": "Playlist entière",
+            "value": "loop"
+          },
+          {
+            "label": "Un seul media",
+            "value": "repeat"
+          },
+          {
+            "label": "Pas de répétition",
+            "value": "default"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "play_media_on_channel",
+    "type": "sound_action",
+    "description": "Play a media on a channel",
+    "options": [
+      {
+        "name": "channel",
+        "desc": "Channel",
+        "type": "string"
+      },
+      {
+        "name": "media_index",
+        "desc": "Index of the media to play",
+        "type": "int"
+      },
+      {
+        "name": "transition_time",
+        "desc": "Fading time before and after changing media",
+        "type": "int",
+        "default": 0
+      }
+    ]
+  },
+  {
+    "name": "play_sound",
+    "type": "sound_action",
+    "description": "Play a sound",
+    "options": [
+      {
+        "name": "filename",
+        "desc": "Sound file to play",
+        "type": "string"
+      },
+      {
+        "name": "volume",
+        "desc": "Sound volume",
+        "type": "int",
+        "default": 100
+      },
+      {
+        "name": "fade_other",
+        "desc": "Fade others channels",
+        "type": "bool"
+      },
+      {
+        "name": "other_volume",
+        "desc": "Others channels volume while playing sound (if fade_other enabled)",
+        "type": "int"
+      },
+      {
+        "name": "fade_time",
+        "desc": "Fade time for other channels volume",
+        "type": "float"
+      }
+    ]
+  }
+]
