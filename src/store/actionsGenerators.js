@@ -1,7 +1,6 @@
 export function resetScenario() {
     return ({
-        type: "resetScenario",
-        payload: 1
+        type: "resetScenario"
     });
 }
 

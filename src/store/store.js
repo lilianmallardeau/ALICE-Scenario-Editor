@@ -1,9 +1,30 @@
-import {combineReducers, configureStore, createSlice} from '@reduxjs/toolkit';
+import {combineReducers, configureStore, createSlice, nanoid} from '@reduxjs/toolkit';
 import {loadState, saveState} from "./localStorage";
 
 const defaultScenario = {
     sensors: [],
-    media_channels: [],
+    media_channels: [
+        {
+            id: nanoid(),
+            name: "Musiques",
+            content: []
+        },
+        {
+            id: nanoid(),
+            name: "Dialogues",
+            content: []
+        },
+        {
+            id: nanoid(),
+            name: "Bruitages",
+            content: []
+        },
+        {
+            id: nanoid(),
+            name: "Ambiances",
+            content: []
+        }
+    ],
     actions: [],
     events: [],
     sensor_events: [],
@@ -28,24 +49,28 @@ const sensorSlice = createSlice({
 
 const mediaSlice = createSlice({
     name: "media_channels",
-    initialState: [],
-    //     {
-    //         name: "Musiques",
-    //         content: []
-    //     },
-    //     {
-    //         name: "Dialogues",
-    //         content: []
-    //     },
-    //     {
-    //         name: "Bruitages",
-    //         content: []
-    //     },
-    //     {
-    //         name: "Ambiances",
-    //         content: []
-    //     }
-    // ],
+    initialState: [
+        {
+            id: nanoid(),
+            name: "Musiques",
+            content: []
+        },
+        {
+            id: nanoid(),
+            name: "Dialogues",
+            content: []
+        },
+        {
+            id: nanoid(),
+            name: "Bruitages",
+            content: []
+        },
+        {
+            id: nanoid(),
+            name: "Ambiances",
+            content: []
+        }
+    ],
     reducers: {
         // addMediaChannel: (state, action) => {
         //     // payload: "new channel_name"
@@ -187,12 +212,10 @@ const firstEventSlice = createSlice({
 
 
 const scenarioReducer = function(state, action) {
-    // if (action.type === "resetScenario") {
-    //     return defaultScenario;
-    // }
-    if (action.type === "updateWholeScenario") {
+    if (action.type === "resetScenario")
+        return defaultScenario;
+    if (action.type === "updateWholeScenario")
         return action.payload;
-    }
     return combineReducers({
         sensors: sensorSlice.reducer,
         media_channels: mediaSlice.reducer,
@@ -210,11 +233,25 @@ const presetsReducer = function(state, action) {
     })(state, action);
 }
 
+const arduinosReducer = createSlice({
+    name: "arduinos",
+    initialState: [],
+    reducers: {
+        updateAllArduinos: (state, action) => {
+            return action.payload;
+        },
+        addArduino: (state, action) => {
+            return state.concat(action.payload);
+        }
+    }
+})
+
 // const store = createStore(rootReducer);
 const store = configureStore({
     reducer: {
         scenario: scenarioReducer,
         //presets: []
+        arduinos: arduinosReducer.reducer
     },
     preloadedState: loadState()
 });
@@ -230,3 +267,4 @@ export const { createAction, importAction, removeAction, updateAction, updateAll
 export const { createEvent, deleteEvent, updateEvent, setNextEvent, updateAllEvents } = eventSlice.actions
 export const { addTimelineEvent, removeTimelineEvent, updateTimelineEvent, updateWholeTimeline } = timelineSlice.actions
 export const { updateFirstEvent } = firstEventSlice.actions
+export const { updateAllArduinos, addArduino } = arduinosReducer.actions

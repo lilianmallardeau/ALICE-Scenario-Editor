@@ -21,7 +21,7 @@ export function SensorsModal(props) {
     const handleShow = () => {
         setSensorsList(selector);
         setShow(true);
-    };
+    }
     const handleSave = () => {
         dispatch(updateSensors(sensorsList));
         handleClose();

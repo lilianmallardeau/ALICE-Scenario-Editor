@@ -2,15 +2,19 @@ import {useDispatch, useSelector} from "react-redux";
 import React, {useEffect, useState} from "react";
 import {Row, Col, Form, Card, Modal, Container} from "react-bootstrap";
 
-import {actionSelector} from "../store/selectors";
+import {actionSelector, arduinosSelector, soundChannelsNameSelector} from "../store/selectors";
 import {removeAction, updateAction} from "../store/store";
 import {SaveDiscardButtons, DeleteButton, EditButton} from "./buttons";
-import available_actions from "../data/actions.json";
+import sound_actions from "../data/actions/sound_actions.json";
+import arduino_actions from "../data/actions/arduino_actions.json";
+const available_actions = Array.prototype.concat(sound_actions, arduino_actions);
 
 
 function ActionOptions(props) {
     const actionTemplate = available_actions.find(action_template => action_template.name === props.action);
     const optionsTemplate = actionTemplate ? actionTemplate.options : [];
+    const arduinos = useSelector(arduinosSelector);
+    const sound_channels = useSelector(soundChannelsNameSelector);
 
     const [options, setOptions] = useState(getDefaultOptions());
     useEffect(() => {
@@ -39,14 +43,6 @@ function ActionOptions(props) {
 
     return (
         <>
-            {/*<Row>*/}
-            {/*    <Col>*/}
-            {/*        <Form.Label htmlFor="arduino-target">Arduino cible</Form.Label>*/}
-            {/*    </Col>*/}
-            {/*    <Col>*/}
-            {/*        <Form.Control type="text" id="arduino-target" name="arduino" onChange={optionChanged}/>*/}
-            {/*    </Col>*/}
-            {/*</Row>*/}
             {optionsTemplate.map(option => (
                 <Row key={option.name}>
                     <Col>
@@ -68,6 +64,14 @@ function ActionOptions(props) {
                                     return <Form.Control {...commonProps} type="number" step="any" value={options[option.name]}/>;
                                 case 'bool':
                                     return <Form.Check {...commonProps} checked={options[option.name]}/>;
+                                case 'arduino':
+                                    return (<Form.Control {...commonProps} as="select" value={options[option.name]}>
+                                        {arduinos.map(arduino => <option value={arduino}>{arduino}</option>)}
+                                    </Form.Control>);
+                                case 'sound_channel':
+                                    return (<Form.Control {...commonProps} as="select" value={options[option.name]}>
+                                        {sound_channels.map(channel => <option value={channel}>{channel}</option>)}
+                                    </Form.Control>);
                                 case 'choice':
                                     return option.choices.map(choice => (
                                         <Form.Check

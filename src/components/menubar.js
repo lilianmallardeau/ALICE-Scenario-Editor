@@ -8,6 +8,7 @@ import {SensorsModal} from './sensors-modal';
 import {ChannelsModal} from "./medialists-modal";
 import {scenarioSelector, presetsSelector} from "../store/selectors";
 import {updateWholeScenario, resetScenario} from "../store/actionsGenerators";
+import {ArduinosModal} from "./arduinos-modal";
 
 function downloadJSON(filename, content) {
     const stringifiedContent = JSON.stringify(content, null, 4);
@@ -42,6 +43,7 @@ export function MenuBar(props) {
 
     return (
         <div id="menubar">
+            <ArduinosModal/>
             <SensorsModal/>
             <ChannelsModal/>
             <Button onClick={() => downloadJSON("scenario.json", scenario)}>
@@ -54,11 +56,11 @@ export function MenuBar(props) {
                 <DownloadIcon size={16}/>Export presets
             </Button>
             <Button onClick={() => presetsFilePicker.current.click()}>
-                <DownloadIcon size={16}/>Import presets
+                <FileSymlinkFileIcon size={16}/>Import presets
             </Button>
             <input type="file" style={{display: 'none'}} ref={scenarioFilePicker} id="file-picker" onChange={openScenario}/>
             <input type="file" style={{display: 'none'}} ref={presetsFilePicker} id="file-picker" onChange={openPresets}/>
-            <Button onClick={dispatch(resetScenario())}>
+            <Button onClick={() => dispatch(resetScenario())}>
                 Reset Scenario
             </Button>
         </div>

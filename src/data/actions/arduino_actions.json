@@ -1,0 +1,644 @@
+[
+  {
+    "name": "couleur_leds",
+    "type": "arduino_action",
+    "description": "Allume toute les LEDs d'une couleur",
+    "options": [
+      {
+        "name": "arduino",
+        "desc": "Arduino cible",
+        "type": "arduino"
+      },
+      {
+        "name": "ilot",
+        "desc": "Nom de l'ilot",
+        "type": "string"
+      },
+      {
+        "name": "red",
+        "desc": "Couleur rouge",
+        "type": "int",
+        "default": 0
+      },
+      {
+        "name": "green",
+        "desc": "Couleur verte",
+        "type": "int",
+        "default": 0
+      },
+      {
+        "name": "blue",
+        "desc": "Couleur bleue",
+        "type": "int",
+        "default": 0
+      },
+      {
+        "name": "brightness",
+        "desc": "Intensité de led",
+        "type": "int",
+        "default": 255
+      },
+      {
+        "name": "leds",
+        "desc": "Liste de toutes les leds",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "name": "arcenciel",
+    "type": "arduino_action",
+    "description": "Couleur arc-en-ciel sur les LEDs",
+    "options": [
+      {
+        "name": "arduino",
+        "desc": "Arduino cible",
+        "type": "arduino"
+      },
+      {
+        "name": "ilot",
+        "desc": "Nom de l'ilot",
+        "type": "string"
+      },
+      {
+        "name": "brightness",
+        "desc": "Intensité de led",
+        "type": "int",
+        "default": 255
+      },
+      {
+        "name": "leds",
+        "desc": "Liste de toutes les LEDs",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "name": "changement_couleur",
+    "type": "arduino_action",
+    "description": "Animation en forme de vague",
+    "options": [
+      {
+        "name": "arduino",
+        "desc": "Arduino cible",
+        "type": "arduino"
+      },
+      {
+        "name": "ilot",
+        "desc": "Nom de l'ilot",
+        "type": "string"
+      },
+      {
+        "name": "red1",
+        "desc": "Couleur rouge de départ",
+        "type": "int",
+        "default": 0
+      },
+      {
+        "name": "green1",
+        "desc": "Couleur verte de départ",
+        "type": "int",
+        "default": 0
+      },
+      {
+        "name": "blue1",
+        "desc": "Couleur bleue de départ",
+        "type": "int",
+        "default": 0
+      },
+      {
+        "name": "brightness1",
+        "desc": "Intensité de led de départ",
+        "type": "int",
+        "default": 255
+      },
+      {
+        "name": "red",
+        "desc": "Couleur rouge vague",
+        "type": "int",
+        "default": 0
+      },
+      {
+        "name": "green",
+        "desc": "Couleur verte vague",
+        "type": "int",
+        "default": 0
+      },
+      {
+        "name": "blue",
+        "desc": "Couleur bleue vague",
+        "type": "int",
+        "default": 0
+      },
+      {
+        "name": "brightness",
+        "desc": "Intensité de led vague",
+        "type": "int",
+        "default": 255
+      },
+      {
+        "name": "delai",
+        "desc": "Délai pour chaque vague",
+        "type": "int"
+      },
+      {
+        "name": "temps",
+        "desc": "Temps totale de l'animation",
+        "type": "int"
+      },
+      {
+        "name": "leds",
+        "desc": "Liste de toutes les LEDs",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "name": "balayage",
+    "type": "arduino_action",
+    "description": "Balayage sur les LEDs",
+    "options": [
+      {
+        "name": "arduino",
+        "desc": "Arduino cible",
+        "type": "arduino"
+      },
+      {
+        "name": "ilot",
+        "desc": "Nom de l'ilot",
+        "type": "string"
+      },
+      {
+        "name": "red1",
+        "desc": "Couleur rouge de départ",
+        "type": "int",
+        "default": 0
+      },
+      {
+        "name": "green1",
+        "desc": "Couleur verte de départ",
+        "type": "int",
+        "default": 0
+      },
+      {
+        "name": "blue1",
+        "desc": "Couleur bleue de départ",
+        "type": "int",
+        "default": 0
+      },
+      {
+        "name": "brightness1",
+        "desc": "Intensité de led de départ",
+        "type": "int",
+        "default": 255
+      },
+      {
+        "name": "red",
+        "desc": "Couleur rouge fin",
+        "type": "int",
+        "default": 0
+      },
+      {
+        "name": "green",
+        "desc": "Couleur verte fin",
+        "type": "int",
+        "default": 0
+      },
+      {
+        "name": "blue",
+        "desc": "Couleur bleue fin",
+        "type": "int",
+        "default": 0
+      },
+      {
+        "name": "brightness",
+        "desc": "Intensité de led fin",
+        "type": "int",
+        "default": 255
+      },
+      {
+        "name": "delai",
+        "desc": "Delai de balayage",
+        "type": "int"
+      },
+      {
+        "name": "leds",
+        "desc": "Liste de toutes les leds",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "name": "transition",
+    "type": "arduino_action",
+    "description": "Transition d'une couleur à une autre de toute les LEDs en même temps",
+    "options": [
+      {
+        "name": "arduino",
+        "desc": "Arduino cible",
+        "type": "arduino"
+      },
+      {
+        "name": "ilot",
+        "desc": "Nom de l'ilot",
+        "type": "string"
+      },
+      {
+        "name": "red1",
+        "desc": "Couleur rouge de départ",
+        "type": "int",
+        "default": 0
+      },
+      {
+        "name": "green1",
+        "desc": "Couleur verte de départ",
+        "type": "int",
+        "default": 0
+      },
+      {
+        "name": "blue1",
+        "desc": "Couleur bleue de départ",
+        "type": "int",
+        "default": 0
+      },
+      {
+        "name": "brightness1",
+        "desc": "Intensité de led de départ",
+        "type": "int",
+        "default": 255
+      },
+      {
+        "name": "red",
+        "desc": "Couleur rouge fin",
+        "type": "int",
+        "default": 0
+      },
+      {
+        "name": "green",
+        "desc": "Couleur verte fin",
+        "type": "int",
+        "default": 0
+      },
+      {
+        "name": "blue",
+        "desc": "Couleur bleue fin",
+        "type": "int",
+        "default": 0
+      },
+      {
+        "name": "brightness",
+        "desc": "Intensité de led fin",
+        "type": "int",
+        "default": 255
+      },
+      {
+        "name": "temps",
+        "desc": "Temps de transition",
+        "type": "int"
+      },
+      {
+        "name": "leds",
+        "desc": "Liste de toutes les leds",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "name": "set_angle",
+    "type": "arduino_action",
+    "description": "Set le servomoteur à un angle",
+    "options": [
+      {
+        "name": "arduino",
+        "desc": "Arduino cible",
+        "type": "arduino"
+      },
+      {
+        "name": "num",
+        "desc": "Numéro du moteur servo 1ou2",
+        "type": "int"
+      },
+      {
+        "name": "angle",
+        "desc": "Angle souhaite",
+        "type": "int"
+      },
+      {
+        "name": "temps",
+        "desc": "Temps pour passer vers l'angle souhaité",
+        "type": "float",
+        "default": 0
+      }
+    ]
+  },
+  {
+    "name": "aller_retour",
+    "type": "arduino_action",
+    "description": "Fait des aller retours entre 2 angles",
+    "options": [
+      {
+        "name": "arduino",
+        "desc": "Arduino cible",
+        "type": "arduino"
+      },
+      {
+        "name": "num",
+        "desc": "Numéro du moteur servo 1ou2",
+        "type": "int"
+      },
+      {
+        "name": "angle",
+        "desc": "Angle de depart",
+        "type": "string"
+      },
+      {
+        "name": "angle2",
+        "desc": "Angle de fin",
+        "type": "string"
+      },
+      {
+        "name": "ntours",
+        "desc": "Nombre d'aller retour",
+        "type": "int"
+      },
+      {
+        "name": "temps",
+        "desc": "Temps d'un aller",
+        "type": "float"
+      },
+      {
+        "name": "temps2",
+        "desc": "Temps d'un retour",
+        "type": "float"
+      },
+      {
+        "name": "delai",
+        "desc": "Pause entre chaque aller retour",
+        "type": "int",
+        "default": 0
+      }
+    ]
+  },
+  {
+    "name": "set_speed",
+    "type": "arduino_action",
+    "description": "Change la vitesse d'un MCC",
+    "options": [
+      {
+        "name": "arduino",
+        "desc": "Arduino cible",
+        "type": "arduino"
+      },
+      {
+        "name": "num",
+        "desc": "Numéro du moteur 1a4",
+        "type": "int"
+      },
+      {
+        "name": "speed",
+        "desc": "Vitesse souhaite",
+        "type": "int"
+      },
+      {
+        "name": "temps",
+        "desc": "Temps pour passer vers la vit souhaite",
+        "type": "float",
+        "default": 0
+      }
+    ]
+  },
+  {
+    "name": "fumee_constante",
+    "type": "arduino_action",
+    "description": "Fait de la fumée constante pendant un certain temps",
+    "options": [
+      {
+        "name": "arduino",
+        "desc": "Arduino cible",
+        "type": "arduino"
+      },
+      {
+        "name": "num",
+        "desc": "Numéro du moteur 1a4",
+        "type": "int"
+      },
+      {
+        "name": "speed",
+        "desc": "Vitesse souhaite",
+        "type": "int"
+      },
+      {
+        "name": "temps",
+        "desc": "Temps de l'animation",
+        "type": "int"
+      }
+    ]
+  },
+  {
+    "name": "fumee_intervalle",
+    "type": "arduino_action",
+    "description": "Fait des crachats de fumée",
+    "options": [
+      {
+        "name": "arduino",
+        "desc": "Arduino cible",
+        "type": "arduino"
+      },
+      {
+        "name": "num",
+        "desc": "Numéro du moteur 1a4",
+        "type": "int"
+      },
+      {
+        "name": "speed",
+        "desc": "Vitesse souhaite de depart",
+        "type": "int",
+        "default": 200
+      },
+      {
+        "name": "speed2",
+        "desc": "Vitesse souhaite de fin",
+        "type": "int",
+        "default": 120
+      },
+      {
+        "name": "temps",
+        "desc": "Temps de l'animation",
+        "type": "int"
+      },
+      {
+        "name": "tempsdimi",
+        "desc": "Temps de transition vers la vitesse debut et fin",
+        "type": "int"
+      },
+      {
+        "name": "pause",
+        "desc": "Pause entre chaque crachat",
+        "type": "int",
+        "default": 500
+      }
+    ]
+  },
+  {
+    "name": "fumee_anim1",
+    "type": "arduino_action",
+    "description": "Fait l'anim fumée 1 prédéfinie",
+    "options": [
+      {
+        "name": "arduino",
+        "desc": "Arduino cible",
+        "type": "arduino"
+      },
+      {
+        "name": "num",
+        "desc": "Numéro du moteur 1a4",
+        "type": "int"
+      },
+      {
+        "name": "temps",
+        "desc": "Temps de l'animation",
+        "type": "int"
+      }
+    ]
+  },
+  {
+    "name": "fumee_anim2",
+    "type": "arduino_action",
+    "description": "Fait l'anim fumée 2 prédéfinie",
+    "options": [
+      {
+        "name": "arduino",
+        "desc": "Arduino cible",
+        "type": "arduino"
+      },
+      {
+        "name": "num",
+        "desc": "Numéro du moteur 1a4",
+        "type": "int"
+      },
+      {
+        "name": "temps",
+        "desc": "Temps de l'animation",
+        "type": "int"
+      }
+    ]
+  },
+  {
+    "name": "fumee_anim3",
+    "type": "arduino_action",
+    "description": "Fait l'anim fumée 3 prédéfinie",
+    "options": [
+      {
+        "name": "arduino",
+        "desc": "Arduino cible",
+        "type": "arduino"
+      },
+      {
+        "name": "num",
+        "desc": "Numéro du moteur 1a4",
+        "type": "int"
+      },
+      {
+        "name": "temps",
+        "desc": "Temps de l'animation",
+        "type": "int"
+      }
+    ]
+  },
+  {
+    "name": "fumee_anim4",
+    "type": "arduino_action",
+    "description": "Fait l'anim fumée 4 prédéfinie",
+    "options": [
+      {
+        "name": "arduino",
+        "desc": "Arduino cible",
+        "type": "arduino"
+      },
+      {
+        "name": "num",
+        "desc": "Numéro du moteur 1a4",
+        "type": "int"
+      },
+      {
+        "name": "temps",
+        "desc": "Temps de l'animation",
+        "type": "int"
+      }
+    ]
+  },
+  {
+    "name": "start",
+    "type": "arduino_action",
+    "description": "Commence a faire tourner un moteur",
+    "options": [
+      {
+        "name": "arduino",
+        "desc": "Arduino cible",
+        "type": "arduino"
+      },
+      {
+        "name": "num",
+        "desc": "Numéro du moteur 1a4",
+        "type": "int"
+      },
+      {
+        "name": "sens",
+        "desc": "Sens de rotation",
+        "type": "bool"
+      },
+      {
+        "name": "vitesse",
+        "desc": "Vitesse du moteur",
+        "type": "int"
+      },
+      {
+        "name": "temps",
+        "desc": "temps de rotation",
+        "type": "int",
+        "default": 0
+      }
+    ]
+  },
+  {
+    "name": "stop",
+    "type": "arduino_action",
+    "description": "Stop un moteur",
+    "options": [
+      {
+        "name": "arduino",
+        "desc": "Arduino cible",
+        "type": "arduino"
+      },
+      {
+        "name": "num",
+        "desc": "Numéro du moteur 1a4",
+        "type": "int"
+      }
+    ]
+  },
+  {
+    "name": "on",
+    "type": "arduino_action",
+    "description": "Allume le relai qui chauffe la resistance",
+    "options": [
+      {
+        "name": "arduino",
+        "desc": "Arduino cible",
+        "type": "arduino"
+      }
+    ]
+  },
+  {
+    "name": "off",
+    "type": "arduino_action",
+    "description": "Eteint le relai qui chauffe la resistance",
+    "options": [
+      {
+        "name": "arduino",
+        "desc": "Arduino cible",
+        "type": "arduino"
+      }
+    ]
+  }
+]
